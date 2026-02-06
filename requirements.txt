@@ -1,3 +1,8 @@
 Flask
 boto3
 Werkzeug
+
+# ML
+numpy
+scikit-learn
+joblib
