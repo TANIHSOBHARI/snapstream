@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-5xl mx-auto space-y-4">
+
+    <div class="aspect-video bg-black rounded-xl overflow-hidden">
+        <video controls class="w-full h-full object-contain">
+            <source src="{{ url_for('static', filename='videos/' + video.filename) }}">
+        </video>
+    </div>
+
+    <h1 class="text-xl font-semibold">{{ video.title }}</h1>
+
+    <p class="text-sm text-zinc-400">
+        {{ video.views }} views • {{ video.uploaded_at }}
+    </p>
+
+    <div class="bg-zinc-800 rounded-xl p-4">
+        Uploaded by
+        <a href="/channel/{{ video.uploader }}"
+           class="text-red-400 hover:underline font-medium">
+            {{ video.uploader }}
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

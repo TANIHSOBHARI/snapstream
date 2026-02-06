@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-xl font-semibold mb-6">Watch Later</h1>
+
+{% if videos %}
+<div class="space-y-4 max-w-4xl">
+
+{% for id, v in videos %}
+<a href="/stream/{{ id }}"
+   class="flex gap-4 bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-3">
+
+    <img src="{{ url_for('static', filename='thumbnails/' + v.thumbnail) }}"
+         class="w-48 h-28 object-cover rounded-lg">
+
+    <div>
+        <p class="font-medium">{{ v.title }}</p>
+        <p class="text-sm text-zinc-400">{{ v.uploader }}</p>
+        <p class="text-xs text-zinc-500">{{ v.views }} views</p>
+    </div>
+
+</a>
+{% endfor %}
+
+</div>
+{% else %}
+<p class="text-zinc-500">No videos saved yet.</p>
+{% endif %}
+
+{% endblock %}

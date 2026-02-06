@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-xl font-semibold mb-6">Notifications</h1>
+
+<div class="space-y-3 max-w-xl">
+    <div class="bg-zinc-800 p-4 rounded-lg">
+        <p class="text-sm">📺 A creator you follow uploaded a new video</p>
+    </div>
+    <div class="bg-zinc-800 p-4 rounded-lg">
+        <p class="text-sm">⭐ You subscribed to a channel</p>
+    </div>
+</div>
+
+<p class="text-xs text-zinc-500 mt-6">
+    Notifications are handled using AWS SNS in production.
+</p>
+
+{% endblock %}

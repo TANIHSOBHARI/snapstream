@@ -1,0 +1,106 @@
+# ===============================
+# PYTHON
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# ===============================
+# FLASK / APP
+# ===============================
+instance/
+*.log
+logs/
+*.sqlite3
+*.db
+
+# Flask session / cache
+flask_session/
+.cache/
+
+# ===============================
+# AWS / CLOUD
+# ===============================
+
+# AWS credentials (NEVER COMMIT)
+.aws/
+aws_credentials*
+credentials
+config
+
+# Boto cache
+.boto
+boto3_cache/
+
+# ===============================
+# SECRETS / ENV
+# ===============================
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# ===============================
+# UPLOADS / USER CONTENT
+# ===============================
+static/uploads/
+static/videos/
+static/thumbnails/
+
+# JSON data used locally (DynamoDB replaces this on AWS)
+subscriptions.json
+watch_later.json
+
+# ===============================
+# NODE / FRONTEND (if ever added)
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ===============================
+# OS FILES
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# IDE / EDITOR
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===============================
+# TEST / TEMP
+# ===============================
+tmp/
+temp/
+*.tmp
+
+# ===============================
+# AWS DEPLOYMENT ARTIFACTS
+# ===============================
+.zip
+*.tar.gz
+*.ebextensions/
+.elasticbeanstalk/
+
+# ===============================
+# JUPYTER / ML (you have ml folder)
+# ===============================
+.ipynb_checkpoints/
+*.h5
+*.onnx
+*.pt

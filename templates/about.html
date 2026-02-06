@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-5xl mx-auto space-y-12">
+
+    <!-- PAGE HEADER -->
+    <section class="space-y-4">
+        <h1 class="text-3xl font-bold">About SnapStream</h1>
+        <p class="text-zinc-400 text-lg">
+            A modern video streaming and content management platform built for creators and viewers.
+        </p>
+    </section>
+
+    <!-- PLATFORM OVERVIEW -->
+    <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">What is SnapStream?</h2>
+        <p class="text-zinc-300 leading-relaxed">
+            SnapStream is a web-based video streaming platform designed to allow users to upload,
+            stream, and manage video content efficiently. The platform supports both content creators
+            and viewers by offering role-based access, personalized dashboards, and a clean,
+            modern user interface inspired by real-world streaming applications.
+        </p>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class="space-y-6">
+        <h2 class="text-2xl font-semibold">Key Features</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="bg-zinc-800 rounded-xl p-6 space-y-2">
+                <h3 class="font-semibold text-lg">🎥 Video Upload & Streaming</h3>
+                <p class="text-zinc-400 text-sm">
+                    Creators can upload videos with custom thumbnails, while viewers can stream
+                    videos smoothly through an integrated video player.
+                </p>
+            </div>
+
+            <div class="bg-zinc-800 rounded-xl p-6 space-y-2">
+                <h3 class="font-semibold text-lg">👥 User Authentication</h3>
+                <p class="text-zinc-400 text-sm">
+                    Secure login and registration system with role-based access for creators
+                    and viewers.
+                </p>
+            </div>
+
+            <div class="bg-zinc-800 rounded-xl p-6 space-y-2">
+                <h3 class="font-semibold text-lg">📊 Watch History & Analytics</h3>
+                <p class="text-zinc-400 text-sm">
+                    Users can track their watch history, while creators can view engagement
+                    metrics such as views.
+                </p>
+            </div>
+
+            <div class="bg-zinc-800 rounded-xl p-6 space-y-2">
+                <h3 class="font-semibold text-lg">🧠 Smart Session Management</h3>
+                <p class="text-zinc-400 text-sm">
+                    Unique view tracking ensures accurate analytics by counting only one view
+                    per user per video.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY STACK -->
+    <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Technology Stack</h2>
+        <ul class="list-disc list-inside text-zinc-300 space-y-2">
+            <li><strong>Frontend:</strong> HTML, Tailwind CSS, JavaScript</li>
+            <li><strong>Backend:</strong> Python (Flask Framework)</li>
+            <li><strong>Storage:</strong> In-memory Python data structures</li>
+            <li><strong>Session Management:</strong> Flask Sessions</li>
+        </ul>
+    </section>
+
+    <!-- PROJECT PURPOSE -->
+    <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Project Purpose</h2>
+        <p class="text-zinc-300 leading-relaxed">
+            This project was developed as an academic final-year project to demonstrate practical
+            implementation of web development concepts such as authentication, session handling,
+            dynamic content rendering, and user experience design.
+        </p>
+        <p class="text-zinc-300 leading-relaxed">
+            SnapStream focuses on simplicity, clarity, and real-world relevance while maintaining
+            a scalable structure suitable for future enhancements such as cloud deployment,
+            database integration, and machine learning-based recommendations.
+        </p>
+    </section>
+
+</div>
+
+{% endblock %}

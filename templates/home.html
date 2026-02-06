@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-xl font-semibold mb-6">Recommended</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+{% for id, v in videos.items() %}
+<div class="bg-zinc-800 rounded-xl overflow-hidden hover:scale-[1.02] transition">
+
+    <a href="/stream/{{ id }}">
+        {% if v.thumbnail %}
+            <img src="{{ url_for('static', filename='thumbnails/' + v.thumbnail) }}"
+                 class="w-full h-44 object-cover">
+        {% else %}
+            <!-- DEMO PLACEHOLDER -->
+            <div class="w-full h-44 bg-zinc-700 flex items-center justify-center text-zinc-400">
+                <span class="text-sm">Demo Video</span>
+            </div>
+        {% endif %}
+    </a>
+
+    <div class="p-4">
+        <p class="font-medium">{{ v.title }}</p>
+
+        <a href="/channel/{{ v.uploader }}"
+           class="text-sm text-zinc-400 hover:underline">
+            {{ v.uploader }}
+        </a>
+
+        {% if v.views %}
+        <p class="text-xs text-zinc-500">
+            {{ v.views }} views
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

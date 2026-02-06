@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+    <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-semibold">
+            {{ channel }}'s Channel
+        </h1>
+
+        {% if session.get("user") and session.get("user") != channel %}
+            {% if subscribed %}
+            <a href="/unsubscribe/{{ channel }}"
+               class="rounded-full px-5 py-2 border border-zinc-700">
+                Subscribed
+            </a>
+            {% else %}
+            <a href="/subscribe/{{ channel }}"
+               class="rounded-full px-5 py-2 bg-red-600 hover:bg-red-500">
+                Subscribe
+            </a>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <hr class="border-zinc-800">
+
+    {% if videos %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for id, v in videos.items() %}
+        <a href="/stream/{{ id }}"
+           class="bg-zinc-800 rounded-2xl overflow-hidden
+                  hover:scale-[1.02] transition-transform">
+            <img src="{{ url_for('static', filename='thumbnails/' + v.thumbnail) }}"
+                 class="w-full h-44 object-cover">
+            <div class="p-4">
+                <p class="font-medium">{{ v.title }}</p>
+                <p class="text-xs text-zinc-400">{{ v.views }} views</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-zinc-500">No videos yet.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

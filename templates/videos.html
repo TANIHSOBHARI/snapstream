@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-2xl font-semibold mb-8">Videos</h1>
+
+{% if videos %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    {% for id, vid in videos.items() %}
+    <a href="/stream/{{ id }}"
+       class="bg-zinc-800 rounded-2xl overflow-hidden hover:bg-zinc-700 transition block">
+
+        <!-- Thumbnail -->
+        {% if vid.thumbnail %}
+<img src="{{ url_for('static', filename='thumbnails/' + vid.thumbnail) }}"
+     class="w-full h-44 object-cover">
+{% else %}
+<div class="w-full h-44 bg-zinc-700 flex items-center justify-center">
+    <i class="fa-solid fa-play text-3xl text-zinc-400"></i>
+</div>
+{% endif %}
+
+        <!-- Info -->
+        <div class="p-4 space-y-1">
+            <h3 class="font-medium leading-tight">
+                {{ vid.title }}
+            </h3>
+
+            <p class="text-sm text-zinc-400">
+                {{ vid.views }} views • {{ vid.category }}
+            </p>
+        </div>
+
+    </a>
+    {% endfor %}
+
+</div>
+{% else %}
+<p class="text-zinc-500 text-sm">No videos available.</p>
+{% endif %}
+
+{% endblock %}

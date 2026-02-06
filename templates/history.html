@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch History | SnapStream</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            height: 60px;
+            background-color: #0f0f0f;
+            border-bottom: 1px solid #222;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ff0000;
+        }
+
+        /* PAGE */
+        .page {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .clear-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid #303030;
+            font-size: 14px;
+        }
+
+        .clear-btn:hover {
+            background-color: #272727;
+        }
+
+        /* HISTORY ITEM */
+        .history-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .thumb {
+            width: 200px;
+            aspect-ratio: 16 / 9;
+            background: #272727;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .video-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #aaaaaa;
+            margin-bottom: 6px;
+        }
+
+        .watched {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .empty {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="/" class="logo">SnapStream</a>
+</div>
+
+<!-- PAGE -->
+<div class="page">
+
+    <div class="title">Watch History</div>
+
+    {% if history %}
+        <a href="/clear-history" class="clear-btn">Clear Watch History</a>
+
+        {% for video in history %}
+        <a href="/stream/{{ video.id }}" class="history-item">
+
+            <div class="thumb">
+                <img src="/static/thumbnails/{{ video.thumbnail }}">
+            </div>
+
+            <div class="info">
+                <div class="video-title">{{ video.title }}</div>
+                <div class="meta">
+                    {{ video.views }} views • {{ video.category }}
+                </div>
+                <div class="watched">
+                    Watched on {{ video.watched_at }}
+                </div>
+            </div>
+
+        </a>
+        {% endfor %}
+    {% else %}
+        <div class="empty">No watch history yet.</div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="space-y-12">
+
+    <!-- ================= MY UPLOADS ================= -->
+    <section class="space-y-4">
+        <h2 class="text-xl font-semibold">My Uploads</h2>
+
+        {% if my_uploads %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {% for id, vid in my_uploads.items() %}
+            <a href="/stream/{{ id }}"
+               class="bg-zinc-800 rounded-2xl overflow-hidden
+                      hover:bg-zinc-700 hover:scale-[1.02]
+                      transition-transform block">
+
+                <!-- Thumbnail -->
+                {% if vid.thumbnail %}
+                <img src="{{ url_for('static', filename='thumbnails/' + vid.thumbnail) }}"
+                     class="w-full h-44 object-cover">
+                {% else %}
+                <div class="w-full h-44 bg-zinc-700 flex items-center justify-center">
+                    <i class="fa-solid fa-play text-3xl text-zinc-400"></i>
+                </div>
+                {% endif %}
+
+                <!-- Info -->
+                <div class="p-4 space-y-1">
+                    <h3 class="font-medium leading-tight">
+                        {{ vid.title }}
+                    </h3>
+
+                    <p class="text-sm text-zinc-400">
+                        {{ vid.views }} views
+                    </p>
+                </div>
+
+            </a>
+            {% endfor %}
+
+        </div>
+        {% else %}
+        <p class="text-zinc-500 text-sm">No uploads yet.</p>
+        {% endif %}
+    </section>
+
+    <!-- ================= DIVIDER ================= -->
+    <hr class="border-zinc-800">
+
+    <!-- ================= CLEAR HISTORY BUTTON ================= -->
+    <a href="/clear-history"
+       class="inline-flex items-center rounded-full border border-zinc-700
+              px-4 py-2 text-sm hover:bg-zinc-800 transition">
+        Clear Watch History
+    </a>
+
+    <!-- ================= WATCH HISTORY ================= -->
+    <section class="space-y-4">
+        <h2 class="text-xl font-semibold">Watch History</h2>
+
+        {% if my_history %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {% for item in my_history %}
+            <a href="/stream/{{ item.id }}"
+               class="bg-zinc-800 rounded-2xl overflow-hidden
+                      hover:bg-zinc-700 hover:scale-[1.02]
+                      transition-transform block">
+
+                <!-- Thumbnail -->
+                {% if item.thumbnail %}
+                <img src="{{ url_for('static', filename='thumbnails/' + item.thumbnail) }}"
+                     class="w-full h-44 object-cover">
+                {% else %}
+                <div class="w-full h-44 bg-zinc-700 flex items-center justify-center">
+                    <i class="fa-solid fa-play text-3xl text-zinc-400"></i>
+                </div>
+                {% endif %}
+
+                <!-- Info -->
+                <div class="p-4 space-y-1">
+                    <h3 class="font-medium leading-tight">
+                        {{ item.title }}
+                    </h3>
+
+                    <p class="text-sm text-zinc-400">
+                        {{ item.views }} views • {{ item.category }}
+                    </p>
+
+                    <p class="text-xs text-zinc-500">
+                        Watched {{ item.watched_at }}
+                    </p>
+                </div>
+
+            </a>
+            {% endfor %}
+
+        </div>
+        {% else %}
+        <p class="text-zinc-500 text-sm">No watch history yet.</p>
+        {% endif %}
+    </section>
+
+</div>
+
+{% endblock %}

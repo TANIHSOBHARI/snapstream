@@ -1,0 +1,137 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+}
+
+/* FLEX LAYOUT FOR STICKY FOOTER */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s;
+}
+
+/* DARK / LIGHT MODE */
+body.dark {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+body.light {
+    background-color: #f8fafc;
+    color: #000000;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background-color: #1e293b;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.logo {
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+/* CONTENT AREA */
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #020617;
+    color: #ffffff;
+}
+
+/* BUTTONS */
+.btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 6px 0;
+}
+
+.btn:hover {
+    background-color: #1e40af;
+}
+
+/* VIDEO CARDS */
+.video-card {
+    background-color: #1e293b;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.video-title {
+    font-weight: bold;
+}
+
+/* SEARCH */
+.search-box {
+    padding: 10px;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+/* HERO & FEATURES */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+}
+
+/* ICON BUTTON */
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Centered auth pages */
+.center-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.auth-card {
+    background-color: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+}

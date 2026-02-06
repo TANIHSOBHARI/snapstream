@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-xl font-semibold mb-6">Subscriptions</h1>
+
+{% if videos %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+{% for id, v in videos.items() %}
+<a href="/stream/{{ id }}"
+   class="bg-zinc-800 rounded-xl overflow-hidden hover:scale-[1.02] transition">
+
+    <img src="{{ url_for('static', filename='thumbnails/' + v.thumbnail) }}"
+         class="w-full h-44 object-cover">
+
+    <div class="p-4">
+        <p class="font-medium">{{ v.title }}</p>
+        <p class="text-sm text-zinc-400">{{ v.uploader }}</p>
+    </div>
+</a>
+{% endfor %}
+
+</div>
+{% else %}
+<p class="text-zinc-500">No videos from subscriptions yet.</p>
+{% endif %}
+
+{% endblock %}
